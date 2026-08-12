@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO -->
+  <title>cbcSchool App — Smart School Management System for Kenyan Schools</title>
+  <meta name="description" content="cbcSchool App is a free, offline-first school management PWA for Kenyan schools. Digital attendance, CBC report cards, M-Pesa fee payments, WhatsApp alerts & more. Built for teachers, parents & headteachers." />
+  <meta name="keywords" content="school management system Kenya, CBC report cards, M-Pesa school fees, offline school app, free school app Africa, digital attendance Kenya, parent portal Kenya" />
+  <meta name="author" content="Smarternow Data Venture" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cbcschool.onrender.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cbcschool.onrender.com/" />
+  <meta property="og:title" content="cbcSchool App — Smart School Management for Kenyan Schools" />
+  <meta property="og:description" content="Digital attendance, CBC report cards, M-Pesa fee payments & WhatsApp alerts — all free, all offline-capable." />
+  <meta property="og:image" content="https://cbcschool.onrender.com/hero.jpg" />
+  <meta property="og:site_name" content="cbcSchool App" />
+  <meta property="og:locale" content="en_KE" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://cbcschool.onrender.com/" />
+  <meta name="twitter:title" content="cbcSchool App — Smart School Management for Kenyan Schools" />
+  <meta name="twitter:description" content="Free offline-first school management PWA. M-Pesa fees, CBC reports, WhatsApp alerts." />
+  <meta name="twitter:image" content="https://cbcschool.onrender.com/hero.jpg" />
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "cbcSchool App",
+    "operatingSystem": "Android, iOS, Web",
+    "applicationCategory": "EducationApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KES"
+    },
+    "description": "An offline-first school management system for Kenyan schools featuring CBC report cards, M-Pesa fee payments, digital attendance tracking, and WhatsApp parent notifications.",
+    "url": "https://cbcschool.onrender.com/",
+    "screenshot": "https://cbcschool.onrender.com/hero.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "cbcSchool App",
+    "url": "https://cbcschool.onrender.com/",
+    "logo": "https://cbcschool.onrender.com/hero.jpg",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───── NAV ───── -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="cbcSchool App home">
+        <span class="logo-icon">🏫</span>
+        <span class="logo-text">cbcSchool App</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#portals">Portals</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#get-started" class="btn-nav" id="nav-cta">Get Started Free</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="#features">Features</a>
+      <a href="#portals">Portals</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#get-started" class="btn-nav-mobile">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- ───── HERO ───── -->
+  <header class="hero" id="hero">
+    <div class="hero-bg-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Free · Offline-First · Kenya-Built
+        </div>
+        <h1 class="hero-title">
+          The School Management System<br />
+          <span class="gradient-text">Every Kenyan School Deserves</span>
+        </h1>
+        <p class="hero-desc">
+          Digital attendance, CBC report cards, M-Pesa fee collection and WhatsApp parent alerts — all running on cheap Android phones, even without internet.
+        </p>
+        <div class="hero-actions">
+          <a href="#get-started" class="btn-primary" id="hero-cta">
+            <span>Start Free Today</span>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#how-it-works" class="btn-ghost" id="hero-demo">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            See How It Works
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>500+</strong>
+            <span>Schools</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <strong>50K+</strong>
+            <span>Students</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Free Forever</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrapper">
+          <img src="hero.jpg" alt="cbcSchool App showing attendance tracking, CBC report cards and M-Pesa fee payments on a teacher's tablet in a Kenyan classroom" width="640" height="360" loading="eager" />
+          <div class="floating-card card-attend" aria-hidden="true">
+            <div class="fc-icon">✅</div>
+            <div>
+              <div class="fc-label">Attendance Synced</div>
+              <div class="fc-val">Grade 6 · 32/34 Present</div>
+            </div>
+          </div>
+          <div class="floating-card card-mpesa" aria-hidden="true">
+            <div class="fc-icon">💚</div>
+            <div>
+              <div class="fc-label">M-Pesa Confirmed</div>
+              <div class="fc-val">KSh 4,500 · Term 2 Fees</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───── TRUST BAR ───── -->
+  <section class="trust-bar" aria-label="Trusted by schools across Kenya">
+    <div class="container trust-inner">
+      <p class="trust-label">Trusted by schools across Kenya</p>
+      <div class="trust-logos" aria-hidden="true">
+        <span>Nairobi County Schools</span>
+        <span>Mombasa CBC Schools</span>
+        <span>Kisumu Primary Network</span>
+        <span>Nakuru Schools Association</span>
+        <span>Eldoret Education Hub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FEATURES ───── -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Everything You Need</span>
+        <h2>Built for Real Kenyan Schools</h2>
+        <p>No expensive hardware, no complex setup. Works on any Android phone — even offline in remote areas.</p>
+      </div>
+      <div class="features-grid">
+
+        <article class="feature-card" id="feature-attendance">
+          <div class="fc-icon-wrap" style="--ic:#7B4F9B">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Offline Attendance</h3>
+          <p>Mark attendance on your phone with no internet. Records sync automatically to the cloud when connection returns — never lose a day's data.</p>
+          <ul class="feature-list">
+            <li>Works on 2G, 3G or no network</li>
+            <li>Auto-sync via Background Sync API</li>
+            <li>CSV safety export for backup</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="feature-cbc">
+          <div class="fc-icon-wrap" style="--ic:#0EA5E9">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>CBC Report Cards</h3>
+          <p>Generate fully compliant CBC progress reports with EE, ME, AE, BE performance levels across all learning areas — downloadable as PDF.</p>
+          <ul class="feature-list">
+            <li>Formative & summative assessments</li>
+            <li>Auto strand-level summaries</li>
+            <li>One-click PDF download</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="feature-mpesa">
+          <div class="fc-icon-wrap" style="--ic:#22C55E">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>
+          </div>
+          <h3>M-Pesa Fee Collection</h3>
+          <p>Send M-Pesa STK Push prompts to parents' phones for term fees. Automatic payment confirmation, ledger updates and premium activation.</p>
+          <ul class="feature-list">
+            <li>STK Push to parent's phone</li>
+            <li>Auto ledger & receipt</li>
+            <li>Bulk subscription billing</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="feature-whatsapp">
+          <div class="fc-icon-wrap" style="--ic:#25D366">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <h3>WhatsApp Parent Alerts</h3>
+          <p>Notify parents instantly via WhatsApp when their child is absent, assessment results are ready, or school broadcasts are sent.</p>
+          <ul class="feature-list">
+            <li>Absence & consecutive absence alerts</li>
+            <li>Assessment result notifications</li>
+            <li>Fee reminders & broadcasts</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="feature-portal">
+          <div class="fc-icon-wrap" style="--ic:#F59E0B">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Parent Self-Service Portal</h3>
+          <p>Parents log in with their phone number via OTP to view their child's attendance, report cards and fee statements — no app download required.</p>
+          <ul class="feature-list">
+            <li>Phone OTP via Africa's Talking SMS</li>
+            <li>View attendance & report cards</li>
+            <li>Download fee statements as PDF</li>
+          </ul>
+        </article>
+
+        <article class="feature-card" id="feature-marketplace">
+          <div class="fc-icon-wrap" style="--ic:#EC4899">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>School Marketplace</h3>
+          <p>Premium parents unlock a school-targeted marketplace to post and view local ad campaigns — a bonus perk at no extra charge.</p>
+          <ul class="feature-list">
+            <li>School-targeted campaigns</li>
+            <li>Free for premium parents</li>
+            <li>No double-charging</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── PORTALS ───── -->
+  <section class="portals section" id="portals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Four Portals, One System</span>
+        <h2>Everyone Has Their Own Dashboard</h2>
+        <p>Tailored experiences for teachers, parents, headteachers and the school bazaar marketplace.</p>
+      </div>
+      <div class="portals-grid">
+        <article class="portal-card" id="portal-teacher">
+          <div class="portal-top" style="--pc: #7B4F9B">
+            <div class="portal-icon">📚</div>
+            <h3>Teacher Portal</h3>
+          </div>
+          <ul>
+            <li>Offline attendance marking</li>
+            <li>CBC continuous assessment entry</li>
+            <li>Exam session management</li>
+            <li>Class report generation</li>
+            <li>Lesson plan creation</li>
+          </ul>
+          <div class="portal-tag">Works Offline</div>
+        </article>
+        <article class="portal-card" id="portal-parent">
+          <div class="portal-top" style="--pc: #0EA5E9">
+            <div class="portal-icon">👨‍👩‍👧</div>
+            <h3>Parent Portal</h3>
+          </div>
+          <ul>
+            <li>View child's attendance</li>
+            <li>Download CBC report cards</li>
+            <li>Pay fees via M-Pesa STK Push</li>
+            <li>View fee statements (PDF)</li>
+            <li>Receive WhatsApp notifications</li>
+          </ul>
+          <div class="portal-tag" style="--pt:#0EA5E9">No App Install</div>
+        </article>
+        <article class="portal-card" id="portal-headteacher">
+          <div class="portal-top" style="--pc: #F59E0B">
+            <div class="portal-icon">🏛️</div>
+            <h3>Headteacher Portal</h3>
+          </div>
+          <ul>
+            <li>School-wide attendance overview</li>
+            <li>All student report cards</li>
+            <li>Fee collection dashboard</li>
+            <li>Bulk subscription billing</li>
+            <li>Staff management</li>
+          </ul>
+          <div class="portal-tag" style="--pt:#F59E0B">Full Control</div>
+        </article>
+        <article class="portal-card" id="portal-bazar">
+          <div class="portal-top" style="--pc: #EC4899">
+            <div class="portal-icon">🛒</div>
+            <h3>Bazar Marketplace</h3>
+          </div>
+          <ul>
+            <li>School-targeted ad campaigns</li>
+            <li>Merchant self-registration</li>
+            <li>OTP-verified merchant login</li>
+            <li>Campaign analytics</li>
+            <li>Free for premium parents</li>
+          </ul>
+          <div class="portal-tag" style="--pt:#EC4899">Bonus Feature</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── HOW IT WORKS ───── -->
+  <section class="how section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple Setup</span>
+        <h2>Up and Running in Minutes</h2>
+        <p>No technical skills required. No hardware to buy. Start free today.</p>
+      </div>
+      <ol class="steps" aria-label="Setup steps">
+        <li class="step" id="step-1">
+          <div class="step-num" aria-hidden="true">1</div>
+          <div class="step-content">
+            <h3>Register Your School</h3>
+            <p>A headteacher registers the school in minutes. A unique school ID is generated instantly — no paperwork, no approval wait.</p>
+          </div>
+        </li>
+        <li class="step" id="step-2">
+          <div class="step-num" aria-hidden="true">2</div>
+          <div class="step-content">
+            <h3>Add Teachers & Students</h3>
+            <p>Add teachers and students to the system. Teachers log in with their phone number — no passwords to remember.</p>
+          </div>
+        </li>
+        <li class="step" id="step-3">
+          <div class="step-num" aria-hidden="true">3</div>
+          <div class="step-content">
+            <h3>Start Tracking Offline</h3>
+            <p>Teachers mark daily attendance offline on their Android phone. Data syncs automatically when internet is available.</p>
+          </div>
+        </li>
+        <li class="step" id="step-4">
+          <div class="step-num" aria-hidden="true">4</div>
+          <div class="step-content">
+            <h3>Parents Pay via M-Pesa</h3>
+            <p>Parents receive an M-Pesa STK Push on their phone. One tap on their PIN — fees confirmed, ledger updated, premium unlocked.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ───── PRICING ───── -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Transparent Pricing</span>
+        <h2>Free for Schools. Always.</h2>
+        <p>Schools, teachers and headteachers pay nothing. Parents pay a small per-term fee to unlock premium features.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card" id="price-school">
+          <div class="price-header">
+            <h3>School Plan</h3>
+            <div class="price-amount">KSh 0<span>/month</span></div>
+          </div>
+          <ul class="price-features">
+            <li>✅ Unlimited teachers</li>
+            <li>✅ Unlimited students</li>
+            <li>✅ Offline attendance</li>
+            <li>✅ CBC report cards</li>
+            <li>✅ Headteacher dashboard</li>
+            <li>✅ Exam session management</li>
+          </ul>
+          <a href="#get-started" class="btn-outline" id="price-school-cta">Get Started Free</a>
+        </article>
+        <article class="price-card price-featured" id="price-parent">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-header">
+            <h3>Parent Premium</h3>
+            <div class="price-amount">KSh 100<span>/term per child</span></div>
+          </div>
+          <ul class="price-features">
+            <li>✅ Everything in School Plan</li>
+            <li>✅ WhatsApp absence alerts</li>
+            <li>✅ Assessment result alerts</li>
+            <li>✅ M-Pesa STK fee payment</li>
+            <li>✅ Downloadable PDF reports</li>
+            <li>✅ School Marketplace access</li>
+          </ul>
+          <a href="#get-started" class="btn-primary" id="price-parent-cta">Pay via M-Pesa</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FAQ ───── -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Common Questions</h2>
+      </div>
+      <dl class="faq-list">
+        <div class="faq-item" id="faq-1">
+          <dt>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">
+              Does it work without internet?
+              <svg class="faq-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </dt>
+          <dd class="faq-a" id="faq-a-1" hidden>Yes. cbcSchool App is fully offline-first. Attendance and assessment data are stored locally on the device using IndexedDB and automatically synced to the cloud when internet is available — even from background browser tabs.</dd>
+        </div>
+        <div class="faq-item" id="faq-2">
+          <dt>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">
+              Which phones does it support?
+              <svg class="faq-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </dt>
+          <dd class="faq-a" id="faq-a-2" hidden>Any Android or iOS device with a modern browser (Chrome, Samsung Internet, Safari). It is a Progressive Web App (PWA) — no app store download required. It installs directly from the browser to the home screen.</dd>
+        </div>
+        <div class="faq-item" id="faq-3">
+          <dt>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">
+              Is M-Pesa payment safe?
+              <svg class="faq-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </dt>
+          <dd class="faq-a" id="faq-a-3" hidden>Completely safe. cbcSchool App uses the official Safaricom Daraja API with STK Push — no card details are ever shared. Parents simply enter their M-Pesa PIN on their own phone. All callbacks are verified server-side before ledger updates.</dd>
+        </div>
+        <div class="faq-item" id="faq-4">
+          <dt>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">
+              Does it support CBC assessments?
+              <svg class="faq-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </dt>
+          <dd class="faq-a" id="faq-a-4" hidden>Yes. cbcSchool App is built around Kenya's Competency-Based Curriculum (CBC). Teachers enter continuous assessment results per strand and sub-strand. Reports show EE (Exceeding Expectation), ME, AE, and BE performance levels across all learning areas.</dd>
+        </div>
+        <div class="faq-item" id="faq-5">
+          <dt>
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">
+              How do parents receive WhatsApp alerts?
+              <svg class="faq-arrow" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </dt>
+          <dd class="faq-a" id="faq-a-5" hidden>Via the official Meta WhatsApp Business API using approved message templates. When a teacher marks a student absent, the parent receives an instant WhatsApp notification on their phone — no setup required on the parent's side.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ───── GET STARTED CTA ───── -->
+  <section class="cta-section section" id="get-started">
+    <div class="container cta-inner">
+      <h2>Ready to Digitalise Your School?</h2>
+      <p>Join 500+ Kenyan schools already using cbcSchool App. No credit card, no setup fee, no hardware.</p>
+      <div class="cta-form" role="form" aria-label="School registration interest form">
+        <input type="text" id="cta-school" name="school" placeholder="School name" aria-label="School name" />
+        <input type="email" id="cta-email" name="email" placeholder="Email address" aria-label="Email address" />
+        <input type="tel" id="cta-phone" name="phone" placeholder="Phone number (e.g. 0712 345 678)" aria-label="Contact phone number" />
+        <button type="button" class="btn-primary" id="cta-submit-btn" onclick="handleCtaSubmit()">
+          Get Early Access
+        </button>
+      </div>
+      <p class="cta-note">We'll get back to you within 24 hours. Takes under 2 minutes.</p>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" aria-label="cbcSchool App home">
+          <span class="logo-icon">🏫</span>
+          <span class="logo-text">cbcSchool App</span>
+        </a>
+        <p>Empowering Kenyan schools with free, offline-first digital tools.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <div class="footer-col">
+          <strong>Product</strong>
+          <a href="#features">Features</a>
+          <a href="#portals">Portals</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#how-it-works">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <strong>Support</strong>
+          <a href="#faq">FAQ</a>
+          <a href="mailto:support@cbcschool.co.ke">Email Support</a>
+        </div>
+        <div class="footer-col">
+          <strong>Legal</strong>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> cbcSchool App by Smarternow Data Venture. Made with ❤️ in Kenya. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

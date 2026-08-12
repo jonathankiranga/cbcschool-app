@@ -1,0 +1,29 @@
+{
+  "name": "cbcschoolapp",
+  "version": "1.0.0",
+  "description": "cbcSchool App — Smart School Management System marketing website by Smarternow Data Venture",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "nodemailer": "^9.0.5"
+  },
+  "keywords": [
+    "school management",
+    "Kenya",
+    "CBC",
+    "M-Pesa",
+    "offline",
+    "PWA",
+    "education"
+  ],
+  "author": "Smarternow Data Venture",
+  "license": "MIT"
+}
