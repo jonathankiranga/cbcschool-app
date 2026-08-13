@@ -9,15 +9,17 @@ const PORT = process.env.PORT || 3000;
 
 const LEADS_FILE = path.join(__dirname, 'leads.json');
 
-// Email transporter (Gmail SMTP via App Password — IPv4 only for Render)
+// Email transporter (Gmail SMTP via App Password — explicit host forces IPv4 on Render)
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,            // TLS via STARTTLS on port 587 (not SSL on 465)
+  family: 4,                // force IPv4 — Render cannot reach Gmail over IPv6
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   },
-  connectionTimeout: 10000,
-  family: 4
+  connectionTimeout: 10000
 });
 
 // Security headers
