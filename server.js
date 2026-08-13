@@ -9,13 +9,15 @@ const PORT = process.env.PORT || 3000;
 
 const LEADS_FILE = path.join(__dirname, 'leads.json');
 
-// Email transporter (Gmail SMTP via App Password)
+// Email transporter (Gmail SMTP via App Password — IPv4 only for Render)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
-  }
+  },
+  connectionTimeout: 10000,
+  family: 4
 });
 
 // Security headers
