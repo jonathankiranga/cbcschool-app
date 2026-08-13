@@ -3,24 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const LEADS_FILE = path.join(__dirname, 'leads.json');
 
-// Email transporter (Gmail SMTP via App Password — explicit host forces IPv4 on Render)
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,            // TLS via STARTTLS on port 587 (not SSL on 465)
-  family: 4,                // force IPv4 — Render cannot reach Gmail over IPv6
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
-  },
-  connectionTimeout: 10000
-});
+// Resend client — uses HTTPS (port 443), works on Render's free tier
+// SMTP is blocked by Render; HTTP-based email APIs are the only option
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Security headers
 app.use((req, res, next) => {
@@ -72,10 +63,10 @@ app.post('/api/leads', async (req, res) => {
 
     console.log(`New lead: ${entry.school} (${entry.email}, ${entry.phone})`);
 
-    // Send email
-    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-      await transporter.sendMail({
-        from: `"cbcSchool App" <${process.env.SMTP_USER}>`,
+    // Send email via Resend (HTTP API — works on Render, SMTP is blocked)
+    if (process.env.RESEND_API_KEY) {
+      const { error: sendError } = await resend.emails.send({
+        from: 'cbcSchool App <onboarding@resend.dev>',  // use your verified domain once set up
         to: 'jonathankiranga@gmail.com',
         subject: `New CTA Lead — ${entry.school}`,
         html: `
@@ -88,9 +79,13 @@ app.post('/api/leads', async (req, res) => {
           </table>
         `
       });
-      console.log(`Email sent to jonathankiranga@gmail.com`);
+      if (sendError) {
+        console.error('Resend error:', sendError);
+      } else {
+        console.log('Email sent to jonathankiranga@gmail.com');
+      }
     } else {
-      console.log('SMTP not configured — skipping email');
+      console.log('RESEND_API_KEY not configured — skipping email');
     }
 
     res.json({ ok: true, message: 'Request received. We will contact you shortly.' });
