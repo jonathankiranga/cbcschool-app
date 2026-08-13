@@ -42,34 +42,33 @@ app.use(express.static(path.join(__dirname), {
 
 // ─── API: Collect CTA leads ────────────────────────────────────────
 app.post('/api/leads', async (req, res) => {
-  const { school, email, phone } = req.body;
-  if (!school || !email || !phone) {
-    return res.status(400).json({ error: 'School, email, and phone are required' });
-  }
-
-  const cleaned = phone.trim().replace(/\s+/g, '');
-  const entry = {
-    school: school.trim(),
-    email: email.trim(),
-    phone: cleaned,
-    timestamp: new Date().toISOString()
-  };
-
-  // Save to file
-  let leads = [];
   try {
-    if (fs.existsSync(LEADS_FILE)) {
-      leads = JSON.parse(fs.readFileSync(LEADS_FILE, 'utf8'));
+    const { school, email, phone } = req.body;
+    if (!school || !email || !phone) {
+      return res.status(400).json({ error: 'School, email, and phone are required' });
     }
-  } catch { /* start fresh if file is corrupt */ }
 
-  leads.push(entry);
-  fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
+    const cleaned = phone.trim().replace(/\s+/g, '');
+    const entry = {
+      school: school.trim(),
+      email: email.trim(),
+      phone: cleaned,
+      timestamp: new Date().toISOString()
+    };
 
-  console.log(`New lead: ${entry.school} (${entry.email}, ${entry.phone})`);
+    // Save to file (best-effort — Render filesystem is ephemeral)
+    try {
+      let leads = [];
+      if (fs.existsSync(LEADS_FILE)) {
+        leads = JSON.parse(fs.readFileSync(LEADS_FILE, 'utf8'));
+      }
+      leads.push(entry);
+      fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
+    } catch { /* file save failed — continue with email */ }
 
-  // Send email
-  try {
+    console.log(`New lead: ${entry.school} (${entry.email}, ${entry.phone})`);
+
+    // Send email
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
       await transporter.sendMail({
         from: `"cbcSchool App" <${process.env.SMTP_USER}>`,
@@ -89,11 +88,12 @@ app.post('/api/leads', async (req, res) => {
     } else {
       console.log('SMTP not configured — skipping email');
     }
-  } catch (err) {
-    console.error('Email send failed:', err.message);
-  }
 
-  res.json({ ok: true, message: 'Request received. We will contact you shortly.' });
+    res.json({ ok: true, message: 'Request received. We will contact you shortly.' });
+  } catch (err) {
+    console.error('Lead API error:', err);
+    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+  }
 });
 
 // SPA fallback
