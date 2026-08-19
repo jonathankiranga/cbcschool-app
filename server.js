@@ -27,8 +27,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// Cache static assets
-app.use(express.static(path.join(__dirname), {
+// Cache static assets (frontend folder — served by Vercel in production)
+app.use(express.static(path.join(__dirname, 'frontend'), {
   maxAge: '7d',
   etag: true,
   setHeaders: (res, filePath) => {
@@ -101,7 +101,7 @@ app.post('/api/leads', async (req, res) => {
 
 // SPA fallback
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
 app.listen(PORT, () => {
