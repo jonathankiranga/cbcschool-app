@@ -79,10 +79,9 @@ app.post('/api/leads', async (req, res) => {
 
     // Send email via Resend (HTTP API — works on Render, SMTP is blocked)
     if (resend) {
-      const { error: sendError } = await resend.emails.send({
+      const mailOptions = {
         from: 'cbcSchool App <onboarding@resend.dev>',  // use your verified domain once set up
         to: 'jonathankiranga@gmail.com',
-        cc: 'admin@cbcschool.app',  // CC for internal team
         subject: `New CTA Lead — ${entry.school}`,
         html: `
           <h2>New cbcSchool App Registration</h2>
@@ -93,7 +92,12 @@ app.post('/api/leads', async (req, res) => {
             <tr><td style="padding:8px 16px;font-weight:bold;">Submitted:</td><td style="padding:8px 16px;">${entry.timestamp}</td></tr>
           </table>
         `
-      });
+      };
+      // CC is optional — only add if CC_EMAIL is set, so it can't block delivery
+      if (process.env.CC_EMAIL) {
+        mailOptions.cc = process.env.CC_EMAIL;
+      }
+      const { error: sendError } = await resend.emails.send(mailOptions);
       if (sendError) {
         console.error('Resend error:', sendError);
       } else {
