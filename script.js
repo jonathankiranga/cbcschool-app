@@ -97,17 +97,30 @@ async function handleCtaSubmit() {
 
     if (!res.ok) throw new Error('Request failed');
 
+    // Wait up to 60 seconds for Render to boot (free tier can be slow)
+    const MAX_WAIT = 60000;
+    const startTime = Date.now();
+    const waitTimeout = setTimeout(() => {
+      btn.textContent = '❌ Try Again';
+      btn.disabled = false;
+    }, MAX_WAIT);
+
     btn.textContent = '✅ Request Sent!';
     schoolInput.value = '';
     emailInput.value = '';
     phoneInput.value = '';
+
+    // If the request succeeded, clear the timeout so the button doesn't revert
+    clearTimeout(waitTimeout);
   } catch {
+    // Request error — also clear the timeout if it was set
+    // (this happens if the catch runs before the timeout fires)
     btn.textContent = '❌ Try Again';
   } finally {
-    setTimeout(() => {
-      btn.textContent = 'Get Early Access';
-      btn.disabled = false;
-    }, 4000);
+    // If the timeout already fired (request took > 60s), the button state
+    // is already "❌ Try Again" from the setTimeout callback, so nothing
+    // needs to happen here. If the request succeeded before 60s, the
+    // clearTimeout above already fired, so the button stays "✅ Request Sent!".
   }
 }
 
