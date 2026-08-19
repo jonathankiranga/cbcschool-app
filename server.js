@@ -80,7 +80,7 @@ app.post('/api/leads', async (req, res) => {
     // Send email via Resend (HTTP API — works on Render, SMTP is blocked)
     if (resend) {
       const mailOptions = {
-        from: 'cbcSchool App <onboarding@resend.dev>',  // use your verified domain once set up
+        from: 'cbcSchool App <noreply@smarternowapps.co.ke>',  // requires verified domain on Resend
         to: 'jonathankiranga@gmail.com',
         subject: `New CTA Lead — ${entry.school}`,
         html: `
