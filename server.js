@@ -68,6 +68,7 @@ app.post('/api/leads', async (req, res) => {
       const { error: sendError } = await resend.emails.send({
         from: 'cbcSchool App <onboarding@resend.dev>',  // use your verified domain once set up
         to: 'jonathankiranga@gmail.com',
+        cc: 'admin@cbcschool.app',  // CC for internal team
         subject: `New CTA Lead — ${entry.school}`,
         html: `
           <h2>New cbcSchool App Registration</h2>

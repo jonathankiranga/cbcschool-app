@@ -49,6 +49,7 @@ async function handleCtaSubmit() {
   const emailInput = document.getElementById('cta-email');
   const phoneInput = document.getElementById('cta-phone');
   const btn = document.getElementById('cta-submit-btn');
+  const countdownDisplay = document.getElementById('cta-countdown');
 
   const school = (schoolInput.value || '').trim();
   const email = (emailInput.value || '').trim();
@@ -88,6 +89,19 @@ async function handleCtaSubmit() {
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
+  // Show countdown display
+  countdownDisplay.style.display = 'block';
+  let secondsRemaining = 60;
+  countdownDisplay.textContent = `Wait: ${secondsRemaining}s Render is booting...`;
+
+  // Set timeout to reset button after 60 seconds
+  const MAX_WAIT = 60000;
+  const waitTimeout = setTimeout(() => {
+    btn.textContent = '❌ Try Again';
+    btn.disabled = false;
+    countdownDisplay.style.display = 'none';
+  }, MAX_WAIT);
+
   try {
     const res = await fetch('/api/leads', {
       method: 'POST',
@@ -97,30 +111,24 @@ async function handleCtaSubmit() {
 
     if (!res.ok) throw new Error('Request failed');
 
-    // Wait up to 60 seconds for Render to boot (free tier can be slow)
-    const MAX_WAIT = 60000;
-    const startTime = Date.now();
-    const waitTimeout = setTimeout(() => {
-      btn.textContent = '❌ Try Again';
-      btn.disabled = false;
-    }, MAX_WAIT);
+    // CRITICAL: Clear the timeout if request succeeded before 60s
+    clearTimeout(waitTimeout);
+    countdownDisplay.style.display = 'none';
 
     btn.textContent = '✅ Request Sent!';
     schoolInput.value = '';
     emailInput.value = '';
     phoneInput.value = '';
-
-    // If the request succeeded, clear the timeout so the button doesn't revert
-    clearTimeout(waitTimeout);
   } catch {
-    // Request error — also clear the timeout if it was set
-    // (this happens if the catch runs before the timeout fires)
+    // Also clear timeout on error
+    clearTimeout(waitTimeout);
+    countdownDisplay.style.display = 'none';
     btn.textContent = '❌ Try Again';
   } finally {
-    // If the timeout already fired (request took > 60s), the button state
-    // is already "❌ Try Again" from the setTimeout callback, so nothing
-    // needs to happen here. If the request succeeded before 60s, the
-    // clearTimeout above already fired, so the button stays "✅ Request Sent!".
+    // If timeout already fired (request took > 60s), the button state
+    // is already "❌ Try Again" / hidden, so nothing needs to happen here.
+    // If the request succeeded before 60s, the clearTimeout above already
+    // fired, so the button stays "✅ Request Sent!" and countdown is hidden.
   }
 }
 
