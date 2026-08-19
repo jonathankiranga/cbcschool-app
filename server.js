@@ -11,7 +11,10 @@ const LEADS_FILE = path.join(__dirname, 'leads.json');
 
 // Resend client — uses HTTPS (port 443), works on Render's free tier
 // SMTP is blocked by Render; HTTP-based email APIs are the only option
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend = null;
+if (process.env.RESEND_API_KEY) {
+  resend = new Resend(process.env.RESEND_API_KEY);
+}
 
 // Security headers
 app.use((req, res, next) => {
@@ -64,7 +67,7 @@ app.post('/api/leads', async (req, res) => {
     console.log(`New lead: ${entry.school} (${entry.email}, ${entry.phone})`);
 
     // Send email via Resend (HTTP API — works on Render, SMTP is blocked)
-    if (process.env.RESEND_API_KEY) {
+    if (resend) {
       const { error: sendError } = await resend.emails.send({
         from: 'cbcSchool App <onboarding@resend.dev>',  // use your verified domain once set up
         to: 'jonathankiranga@gmail.com',
