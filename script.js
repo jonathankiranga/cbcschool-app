@@ -92,7 +92,7 @@ async function handleCtaSubmit() {
   // Show countdown display
   countdownDisplay.style.display = 'block';
   let secondsRemaining = 60;
-  countdownDisplay.textContent = `Wait: ${secondsRemaining}s Render is booting...`;
+  countdownDisplay.textContent = `Wait: ${secondsRemaining}s sending...`;
 
   // Set timeout to reset button after 60 seconds
   const MAX_WAIT = 60000;
