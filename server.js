@@ -93,15 +93,13 @@ app.post('/api/leads', async (req, res) => {
           </table>
         `
       };
-      // CC is optional — only add if CC_EMAIL is set, so it can't block delivery
-      if (process.env.CC_EMAIL) {
-        mailOptions.cc = process.env.CC_EMAIL;
-      }
+      // CC the visitor who submitted the form
+      mailOptions.cc = entry.email;
       const { error: sendError } = await resend.emails.send(mailOptions);
       if (sendError) {
         console.error('Resend error:', sendError);
       } else {
-        console.log('Email sent to jonathankiranga@gmail.com');
+        console.log(`Email sent to jonathankiranga@gmail.com, CC ${entry.email}`);
       }
     } else {
       console.log('RESEND_API_KEY not configured — skipping email');
