@@ -82,7 +82,7 @@ app.post('/api/leads', async (req, res) => {
       const mailOptions = {
         from: 'cbcSchool App <noreply@smarternowapps.co.ke>',  // requires verified domain on Resend
         to: 'jonathankiranga@gmail.com',
-        subject: `New CTA Lead — ${entry.school}`,
+        subject: `${entry.school}`,
         html: `
           <h2>New cbcSchool App Registration</h2>
           <table style="border-collapse:collapse;font-family:Arial,sans-serif;">
