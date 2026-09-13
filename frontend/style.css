@@ -427,7 +427,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .portals { background: var(--clr-bg); }
 .portals-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 .portal-card {
