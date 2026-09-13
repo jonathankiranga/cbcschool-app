@@ -461,6 +461,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 50px;
   letter-spacing: 0.04em;
 }
+.portal-link {
+  display: block;
+  margin: 0 24px 24px;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--pc, var(--clr-purple-lt));
+  border: 1px solid color-mix(in srgb, var(--pc, #7B4F9B) 45%, transparent);
+  border-radius: 50px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.portal-card:hover .portal-link {
+  background: color-mix(in srgb, var(--pc, #7B4F9B) 18%, transparent);
+  border-color: var(--pc, #7B4F9B);
+}
 
 /* ─── HOW IT WORKS ──────────────────────────────────────────────── */
 .how { background: var(--clr-surface); }
