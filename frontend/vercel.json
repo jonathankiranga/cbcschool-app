@@ -4,6 +4,7 @@
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "privacy.html", "use": "@vercel/static" },
     { "src": "terms.html", "use": "@vercel/static" },
+    { "src": "press.html", "use": "@vercel/static" },
     { "src": "style.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "hero.jpg", "use": "@vercel/static" },
@@ -13,6 +14,7 @@
     { "src": "/", "dest": "/index.html" },
     { "src": "/privacy", "dest": "/privacy.html" },
     { "src": "/terms", "dest": "/terms.html" },
+    { "src": "/press", "dest": "/press.html" },
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" }
   ]
 }
