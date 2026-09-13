@@ -43,6 +43,19 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 // ─── FOOTER YEAR ──────────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ─── WAKE UP LEAD BACKEND (Render free tier sleeps) ──────────────
+// Render free instances cold-start after ~15 min idle. Fire a silent
+// wake ping on load and again right before the CTA POST so the leads
+// API is warm when visitors submit.
+const LEAD_BACKEND = 'https://cbcschool-app.onrender.com';
+function wakeLeadBackend() {
+  fetch(LEAD_BACKEND + '/api/health', {
+    method: 'GET',
+    mode: 'no-cors'
+  }).catch(() => {});
+}
+wakeLeadBackend();
+
 // ─── CTA FORM HANDLER ─────────────────────────────────────────────
 async function handleCtaSubmit() {
   const schoolInput = document.getElementById('cta-school');
@@ -103,6 +116,7 @@ async function handleCtaSubmit() {
   }, MAX_WAIT);
 
   try {
+    wakeLeadBackend();
     const res = await fetch('https://cbcschool-app.onrender.com/api/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

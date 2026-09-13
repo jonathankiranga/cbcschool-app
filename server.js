@@ -38,6 +38,11 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+// Health check — used by the website to wake this Render instance
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true });
+});
+
 // Cache static assets (frontend folder — served by Vercel in production)
 app.use(express.static(path.join(__dirname, 'frontend'), {
   maxAge: '7d',
