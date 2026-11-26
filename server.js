@@ -9,7 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const LEADS_FILE = path.join(__dirname, 'leads.json');
 const ADMIN_EMAIL = process.env.LEADS_ADMIN_EMAIL || 'jonathankiranga@gmail.com';
-const REPLY_TO_EMAIL = process.env.LEADS_REPLY_TO || ADMIN_EMAIL;
+// Replies from prospective schools must go directly to Jonathan, never the no-reply sender.
+const REPLY_TO_EMAIL = 'jonathankiranga@gmail.com';
 const ALLOWED_ORIGINS = new Set([
   'https://smarternowapps.co.ke',
   'https://www.smarternowapps.co.ke',
